@@ -4,18 +4,16 @@ using namespace std;
 
 class Node
 {
-    public :
-        int noMhs;
-        Node *next;
+public:
+    int noMhs;
+    Node *next;    
 };
 
 class LinkedList
 {
     Node *START;
-}
 
 public:
-{
     LinkedList()
     {
         START = NULL;
@@ -24,7 +22,7 @@ public:
     void addNode()
     {
         int nim;
-        cout << "\nMasukkan Nomor Mahasiswa : ";
+        cout << "nMasukkan Nomor Mahasiswa : ";
         cin >> nim;
 
         Node *nodeBaru = new Node;
@@ -34,7 +32,7 @@ public:
         {
             if (START != NULL && nim == START->noMhs)
             {
-                cout << "nDuplikasi noMhs tidak diizinkan\n";
+                cout << "\nDuplikasi noMhs tidak diijinkan\n";
                 return;
             }
 
@@ -74,7 +72,7 @@ public:
         while (current != NULL && nim != current->noMhs)
         {
             previous = current;
-            current =current->next;
+            current = current->next;
         }
 
         return (current != NULL);
@@ -84,25 +82,25 @@ public:
     {
         Node *current, *previous;
 
-        if (!search (nim,previous,current))
+        if (!search(nim, previous, current))
             return false;
 
         if (current == START)
             START = START->next;
         else
             previous->next = current->next;
-        
+
         delete current;
         return true;
     }
 
     void traverse()
     {
-        if (listEmpty())
-        {
-            cout << "\nList Kosong\n";
-        }
-        else
+      if (listEmpty())
+      {
+        cout << "\nList Kosong\n";
+      }
+      else
       {
         cout << "\nData di dalam list adalah:\n";
         Node *currentNode = START;
@@ -116,6 +114,7 @@ public:
       }  
     }
 };
+
 
 int main()
 {
